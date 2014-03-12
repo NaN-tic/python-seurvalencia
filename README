@@ -35,8 +35,8 @@ Test connection
     with API(username, password, debug) as seurvalencia_api:
         print seurvalencia_api.test_connection()
 
-Create/send shipment to Seur Valencia
--------------------------------------
+Get Cities
+----------
 
 .. code-block:: python
 
