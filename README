@@ -8,6 +8,7 @@ Seur Valencia use API methods not equal than Seur (general).
 Features
 --------
 
+- Services
 - Test connection
 - Get cities by zio
 - Create/Send shipments to Seur Valencia
@@ -17,6 +18,14 @@ Usage Examples
 --------------
 
 Example API in test.py file
+
+Services
+--------
+
+.. code-block:: python
+
+    from seur.utils import services
+    services()
 
 Test connection
 ---------------
