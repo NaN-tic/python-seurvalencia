@@ -1,0 +1,14 @@
+El método para imprimir las etiquetas es:
+
+    wsImprimirBultosECB
+
+En el se informarán los datos del envío y devolverá:
+
+    Un array con los números de etiquetas (uno por cada bulto informado).
+    Un string con el código que pintará todas la etiquetas en la impresora Zebra. La impresora es la misma que utiliza ahora (con el driver "Generic/Text only").
+
+El método para imprimir el manifiesto (listado de todos los envíos) es:
+
+    wsImprimirManifiestoPDF
+
+Este devolverá un string con el contenido de un fichero PDF, o sea, que se puede guardar directamente con  extensión PDF o enviar a una impresora. 
