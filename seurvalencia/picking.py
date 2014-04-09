@@ -72,8 +72,8 @@ class Picking(API):
             'exp_bultos': data.get('exp_bultos', '1'),
             'exp_cambio': data.get('exp_cambio', ''),
             'exp_cde': data.get('exp_cde', ''),
-            'exp_portes': data.get('exp_portes', ''),  # F: Facturacion
-            'exp_reembolso': data.get('exp_reembolso', ''),  # F: Facturacion
+            'exp_portes': data.get('exp_portes', 'F'),  # F: Facturacion
+            'exp_reembolso': data.get('exp_reembolso', 'F'),  # F: Facturacion
             'exp_seguro': data.get('exp_seguro', ''),
             'exp_entregar_sabado': data.get('exp_entregar_sabado', ''),
             'exp_lc': data.get('exp_lc', ''),
