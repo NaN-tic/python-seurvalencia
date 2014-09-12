@@ -78,7 +78,7 @@ class Picking(API):
             'exp_entregar_sabado': data.get('exp_entregar_sabado', ''),
             'exp_lc': data.get('exp_lc', ''),
             'exp_observaciones': data.get('exp_observaciones', ''),
-            'exp_peso': data.get('exp_peso', '0.1'),
+            'exp_peso': data.get('exp_peso', '1'),
             'exp_referencia': data.get('exp_referencia', ''),
             'exp_valor_reembolso': data.get('exp_valor_reembolso', ''),
             'exp_valor_seguro': data.get('exp_valor_seguro', '0'),
