@@ -10,14 +10,14 @@ print "Seur services"
 services = services()
 print services
 
-with API(username, password, debug) as seurvalencia_api:
+with API(username, password, debug=debug) as seurvalencia_api:
     print "Test connection"
     print seurvalencia_api.test_connection()
 
     print "Get cities by zip"
     print seurvalencia_api.get_city('08720')
 
-with Picking(username, password, debug) as picking_api:
+with Picking(username, password, debug=debug) as picking_api:
 
     print "Send a new shipment"
     data = {}

@@ -1,10 +1,9 @@
 #This file is part of seurvalencia. The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
-
 from seurvalencia.utils import seurvalencia_url
-
 from xml.dom.minidom import parseString
 import urllib2
+import socket
 import os
 import genshi
 import genshi.template
@@ -22,9 +21,10 @@ class API(object):
         'url',
         'username',
         'password',
+        'timeout',
     )
 
-    def __init__(self, username, password, debug=False):
+    def __init__(self, username, password, timeout=None, debug=False):
         """
         This is the Base API class which other APIs have to subclass. By
         default the inherited classes also get the properties of this
@@ -39,10 +39,12 @@ class API(object):
 
         :param username: API username of the Seur Web Services.
         :param password: API password of the Seur Web Services.
+        :param timeout: int number of seconds to lost connection.
         """
         self.url = seurvalencia_url(debug)
         self.username = username
         self.password = password
+        self.timeout = timeout
 
     def __enter__(self):
         return self
@@ -56,7 +58,7 @@ class API(object):
 
         :param method: method service.
         :param xml: XML data.
-        
+
         Return XML object
         """
         headers = {
@@ -68,9 +70,11 @@ class API(object):
         request = urllib2.Request(self.url, xml, headers)
         try:
             response = urllib2.urlopen(request)
-        except:
-            return None
-        return response.read()
+            return response.read()
+        except socket.timeout as err:
+            return
+        except socket.error as err:
+            return
 
     def test_connection(self):
         """

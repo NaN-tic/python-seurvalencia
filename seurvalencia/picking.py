@@ -115,6 +115,9 @@ class Picking(API):
             }
         xml = tmpl.generate(**vals).render()
         result = self.connect(xml)
+        if not result:
+            return reference, label, 'timed out'
+
         dom = parseString(result)
 
         #Get message error from XML
@@ -152,6 +155,9 @@ class Picking(API):
         url = 'https://ws.seur.com/webseur/services/WSConsultaExpediciones'
         xml = tmpl.generate(**vals).render()
         result = self.connect(xml)
+        if not result:
+            return
+
         dom = parseString(result)
 
         #Get info
