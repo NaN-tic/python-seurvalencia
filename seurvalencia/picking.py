@@ -1,15 +1,12 @@
 #This file is part of seurvalencia. The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
-
 from seurvalencia.api import API
-
 from xml.dom.minidom import parseString
 import os
 import base64
-import genshi
-import genshi.template
+from genshi import template
 
-loader = genshi.template.TemplateLoader(
+loader = template.TemplateLoader(
     os.path.join(os.path.dirname(__file__), 'template'),
     auto_reload=True)
 

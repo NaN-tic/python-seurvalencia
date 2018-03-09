@@ -5,7 +5,6 @@ from xml.dom.minidom import parseString
 import urllib2
 import socket
 import os
-import genshi
 import genshi.template
 
 loader = genshi.template.TemplateLoader(
