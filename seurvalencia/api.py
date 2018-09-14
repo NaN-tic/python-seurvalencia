@@ -2,7 +2,7 @@
 #this repository contains the full copyright notices and license terms.
 from seurvalencia.utils import seurvalencia_url
 from xml.dom.minidom import parseString
-import urllib2
+from urllib import request
 import socket
 import os
 import genshi.template
@@ -66,9 +66,9 @@ class API(object):
             'Content-Type': 'text/xml; charset=utf-8',
             'Content-Length': len(xml),
             }
-        request = urllib2.Request(self.url, xml, headers)
+        rqst = request.Request(self.url, xml, headers)
         try:
-            response = urllib2.urlopen(request)
+            response = request.urlopen(rqst)
             return response.read()
         except socket.timeout as err:
             return
