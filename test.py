@@ -6,20 +6,20 @@ from seurvalencia.picking import *
 from seurvalencia.utils import services
 from base64 import decodestring
 
-print "Seur services"
+print("Seur services")
 services = services()
-print services
+print(services)
 
 with API(username, password, debug=debug) as seurvalencia_api:
-    print "Test connection"
-    print seurvalencia_api.test_connection()
+    print("Test connection")
+    print(seurvalencia_api.test_connection())
 
-    print "Get cities by zip"
-    print seurvalencia_api.get_city('08720')
+    print("Get cities by zip")
+    print(seurvalencia_api.get_city('08720'))
 
 with Picking(username, password, debug=debug) as picking_api:
 
-    print "Send a new shipment"
+    print("Send a new shipment")
     data = {}
 
     #~ data['adn_aduana_destino'] = ''
@@ -101,19 +101,19 @@ with Picking(username, password, debug=debug) as picking_api:
 
     reference, label, error = picking_api.create(data)
 
-    print reference
+    print(reference)
 
     if error:
-        print error
+        print(error)
 
     file = open("/tmp/seur-valencia.txt", "w")
     file.write(label)
     file.close()
-    print "Generated label file in /tmp/seur-valencia.txt"
+    print("Generated label file in /tmp/seur-valencia.txt")
 
-    print "Picking PDF deliveried"
+    print("Picking PDF deliveried")
     pdf = picking_api.info()
     file = open("/tmp/seur-valencia.pdf", "w")
     file.write(pdf)
     file.close()
-    print "Generated PDF deliveries in /tmp/seur-valencia.pdf"
+    print("Generated PDF deliveries in /tmp/seur-valencia.pdf")
